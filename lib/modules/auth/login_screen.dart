@@ -1,5 +1,7 @@
 import 'package:attendance_app/modules/auth/register_screen.dart';
 import 'package:attendance_app/modules/student/attendance_status_screen.dart';
+import 'package:attendance_app/modules/student/qr_scan_screen.dart';
+import 'package:attendance_app/modules/teacher/start_session_screen.dart';
 import 'package:flutter/material.dart';
 import 'auth_service.dart';
 
@@ -98,16 +100,22 @@ class _LoginScreenState extends State<LoginScreen> {
     switch (user.role) {
       case "teacher":
         Navigator.pushReplacementNamed(context, "/teacher/start");
+        // Navigator.pushReplacement(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => StartSessionScreen(
+        //     ),
+        //   ),
+        // );
+        
+        
         break;
       case "student":
         Navigator.pushReplacementNamed(context, "/student/home");
         // Navigator.pushReplacement(
         //   context,
         //   MaterialPageRoute(
-        //     builder: (context) => AttendanceStatusScreen(
-        //       success: true, // or false depending on your logic
-        //       message: "Welcome! Attendance will be recorded soon.",
-        //       method: "manual", // or "qr", "face" based on your app flow
+        //     builder: (context) => QRScanScreen(
         //     ),
         //   ),
         // );

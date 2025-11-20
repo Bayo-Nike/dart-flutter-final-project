@@ -23,10 +23,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
@@ -44,38 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBcrHh-3zo9SD05GCEJU6RqDGk6_duGHMA',
-    appId: '1:1096895368613:web:3cb585b2e46f90b06c6c4c',
-    messagingSenderId: '1096895368613',
-    projectId: 'mywallet-78fb6',
-    authDomain: 'mywallet-78fb6.firebaseapp.com',
-    storageBucket: 'mywallet-78fb6.firebasestorage.app',
+    apiKey: 'AIzaSyBtOzQt_4YJQOksIpVYFWrF3GTiB1e8uA0',
+    appId: '1:1097056844428:web:528094cdacb1a5705919a9',
+    messagingSenderId: '1097056844428',
+    projectId: 'attendance-app-project-92f92',
+    authDomain: 'attendance-app-project-92f92.firebaseapp.com',
+    storageBucket: 'attendance-app-project-92f92.firebasestorage.app',
+    measurementId: 'G-99000S7T6Q',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDz8uP9IJk2Pb3j5RLMhIep5I2bhkXbKxA',
-    appId: '1:1096895368613:android:723d4e45698f487c6c6c4c',
-    messagingSenderId: '1096895368613',
-    projectId: 'mywallet-78fb6',
-    storageBucket: 'mywallet-78fb6.firebasestorage.app',
+    apiKey: 'AIzaSyCCDeL9PdilZzI3RMAeU-JNfmM0JRed5-Q',
+    appId: '1:1097056844428:android:da594fdc3df8acf45919a9',
+    messagingSenderId: '1097056844428',
+    projectId: 'attendance-app-project-92f92',
+    storageBucket: 'attendance-app-project-92f92.firebasestorage.app',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyAKDuYlSzgoJZu60ztJ3lkQZbeWAIoNhMY',
+    appId: '1:1097056844428:ios:0838be4b79692eab5919a9',
+    messagingSenderId: '1097056844428',
+    projectId: 'attendance-app-project-92f92',
+    storageBucket: 'attendance-app-project-92f92.firebasestorage.app',
+    iosBundleId: 'com.example.attendanceApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB8MWge30bd9pzOSDu51-5byqWHu1JBi78',
-    appId: '1:1096895368613:ios:026c11e36d730bce6c6c4c',
-    messagingSenderId: '1096895368613',
-    projectId: 'mywallet-78fb6',
-    storageBucket: 'mywallet-78fb6.firebasestorage.app',
-    iosBundleId: 'com.example.myPocketWallet',
+    apiKey: 'AIzaSyAKDuYlSzgoJZu60ztJ3lkQZbeWAIoNhMY',
+    appId: '1:1097056844428:ios:0838be4b79692eab5919a9',
+    messagingSenderId: '1097056844428',
+    projectId: 'attendance-app-project-92f92',
+    storageBucket: 'attendance-app-project-92f92.firebasestorage.app',
+    iosBundleId: 'com.example.attendanceApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBcrHh-3zo9SD05GCEJU6RqDGk6_duGHMA',
-    appId: '1:1096895368613:web:8d171bac69e802536c6c4c',
-    messagingSenderId: '1096895368613',
-    projectId: 'mywallet-78fb6',
-    authDomain: 'mywallet-78fb6.firebaseapp.com',
-    storageBucket: 'mywallet-78fb6.firebasestorage.app',
+    apiKey: 'AIzaSyBtOzQt_4YJQOksIpVYFWrF3GTiB1e8uA0',
+    appId: '1:1097056844428:web:1626faef77e36c1c5919a9',
+    messagingSenderId: '1097056844428',
+    projectId: 'attendance-app-project-92f92',
+    authDomain: 'attendance-app-project-92f92.firebaseapp.com',
+    storageBucket: 'attendance-app-project-92f92.firebasestorage.app',
+    measurementId: 'G-CXPNRGV78M',
   );
-
 }

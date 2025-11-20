@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'app_router.dart';
 
 void main() async {
@@ -14,6 +15,7 @@ void main() async {
     messagingSenderId: "1097056844428",
     appId: "1:1097056844428:web:528094cdacb1a5705919a9",
     measurementId: "G-99000S7T6Q"));
+    
   runApp(const AttendanceApp());
 }
 
