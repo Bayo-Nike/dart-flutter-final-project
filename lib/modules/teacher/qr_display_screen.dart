@@ -17,7 +17,10 @@ class QRDisplayScreen extends StatelessWidget {
             .snapshots(),
         builder: (context, snap) {
           if (!snap.hasData) return const Center(child: CircularProgressIndicator());
-          final token = snap.data!["qrToken"] ?? "no-token";
+          final docData = snap.data!.data() as Map<String, dynamic>;
+          final token = docData['qrToken'] ?? "no-token";
+
+          // final token = snap.data!["qrToken"] ?? "no-token";
 
           final qrData = "$sessionId|$token";
 
