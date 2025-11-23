@@ -15,6 +15,8 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
   bool rfid = true;
   bool manual = true;
 
+  String? sessionId; // store sessionId after creation
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,12 +32,22 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
 
             ElevatedButton(
               onPressed: () async {
-                final sessionId = await AttendanceService().startSession(
-                  qr: qr, face: face, rfid: rfid, manual: manual
-                );
-                print("SESSION CREATED: $sessionId");
+                try {
+                  final id = await AttendanceService().startSession(
+                    qr: qr,
+                    face: face,
+                    rfid: rfid,
+                    manual: manual,
+                  );
+                  setState(() {
+                    sessionId = id; // save sessionId
+                  });
+                  print("SESSION CREATED: $id");
+                } catch (e) {
+                  print("Error creating session: $e");
+                }
               },
-              child: Text("Start Session"),
+              child: const Text("Start Session"),
             ),
             const SizedBox(height: 10),
 
@@ -46,10 +58,16 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
               },
               child: const Text("Go to Face Scan"),
             ),
+            const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                // Navigate from current page to /teacher/QR
-                context.push('/teacher/qr');
+                if (sessionId != null) {
+                  context.push('/teacher/qr', extra: sessionId);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Create session first!")),
+                  );
+                }
               },
               child: const Text("Go to QR Scan"),
             ),
