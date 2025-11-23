@@ -1,6 +1,6 @@
 # attendance_app
 
-A new Flutter project.
+A Final Flutter App project.
 
 ## Getting Started
 
