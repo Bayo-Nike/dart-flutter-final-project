@@ -1,5 +1,6 @@
 import 'package:attendance_app/modules/attendance/attendance_service.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class StartSessionScreen extends StatefulWidget {
   const StartSessionScreen({super.key});
@@ -35,7 +36,23 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
                 print("SESSION CREATED: $sessionId");
               },
               child: Text("Start Session"),
-            )
+            ),
+            const SizedBox(height: 10),
+
+            ElevatedButton(
+              onPressed: () {
+                // Navigate from current page to /teacher/face
+                context.push('/teacher/face');
+              },
+              child: const Text("Go to Face Scan"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate from current page to /teacher/QR
+                context.push('/teacher/qr');
+              },
+              child: const Text("Go to QR Scan"),
+            ),
           ],
         ),
       ),

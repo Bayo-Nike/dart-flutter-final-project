@@ -3,6 +3,7 @@ import 'package:attendance_app/modules/student/attendance_status_screen.dart';
 import 'package:attendance_app/modules/student/qr_scan_screen.dart';
 import 'package:attendance_app/modules/teacher/start_session_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -99,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (!mounted) return;
     switch (user.role) {
       case "teacher":
-        Navigator.pushReplacementNamed(context, "/teacher/start");
+        context.go("/teacher/start");
         // Navigator.pushReplacement(
         //   context,
         //   MaterialPageRoute(
@@ -111,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
         
         break;
       case "student":
-        Navigator.pushReplacementNamed(context, "/student/home");
+        context.go('/student/home');
         // Navigator.pushReplacement(
         //   context,
         //   MaterialPageRoute(
