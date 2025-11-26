@@ -19,27 +19,43 @@ class _QRScanScreenState extends State<QRScanScreen> {
       body: MobileScanner(
         onDetect: (capture) async {
           if (scanned) return;
+
+          final barcodes = capture.barcodes;
+          if (barcodes.isEmpty) return; // <-- Prevent crash
+
           scanned = true;
 
-          final barcode = capture.barcodes.first.rawValue;
+          final barcode = barcodes.first.rawValue;
           if (barcode == null) return;
 
           final parts = barcode.split("|");
+          if (parts.length < 2) {
+            debugPrint("Invalid QR format");
+            return;
+          }
+
           final sessionId = parts[0];
           final token = parts[1];
 
-          await AttendanceService().registerAttendance(
-            sessionId: sessionId,
-            method: "qr",
-            token: token,
-            studentId: "student001",
-          );
+          try {
+            await AttendanceService().registerAttendance(
+              sessionId: sessionId,
+              method: "qr",
+              token: token,
+              studentId: "student001",
+            );
 
-          if (mounted) {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(const SnackBar(content: Text("Attendance recorded!")));
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text("Attendance recorded!")),
+              );
+            }
+          } catch (e) {
+            scanned = false; // allow retry
+            debugPrint("Error: $e");
           }
-        },
+        }
+
       ),
     );
   }
