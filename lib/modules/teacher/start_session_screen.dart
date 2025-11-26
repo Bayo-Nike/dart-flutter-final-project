@@ -31,6 +31,10 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
             SwitchListTile(title: Text("Manual"), value: manual, onChanged: (v) => setState(() => manual = v)),
 
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor:Colors.white,
+              ),
               onPressed: () async {
                 try {
                   final id = await AttendanceService().startSession(
@@ -52,6 +56,10 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
             const SizedBox(height: 10),
 
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
+                foregroundColor:Colors.white,
+              ),
               onPressed: () {
                 // Navigate from current page to /teacher/face
                 context.push('/teacher/face');
@@ -60,6 +68,10 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
+                foregroundColor:Colors.white,
+              ),
               onPressed: () {
                 if (sessionId != null) {
                   context.push('/teacher/qr', extra: sessionId);
@@ -70,6 +82,23 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
                 }
               },
               child: const Text("Go to QR Scan"),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
+                foregroundColor:Colors.white,
+              ),
+              onPressed: () {
+                if (sessionId != null) {
+                  context.push('/teacher/manual', extra: sessionId);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Create session first!")),
+                  );
+                }
+              },
+              child: const Text("Go to Manual Attendance"),
             ),
           ],
         ),

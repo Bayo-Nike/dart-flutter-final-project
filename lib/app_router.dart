@@ -45,6 +45,14 @@ class AppRouter {
         },
       ),
 
+      GoRoute(
+        path: '/teacher/manual',
+        builder: (context, state) {
+          final sessionId = state.extra as String;
+          return ManualAttendanceScreen(sessionId: sessionId);
+        },
+      ),
+
 
 
       GoRoute(
