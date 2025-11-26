@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AttendanceStatusScreen extends StatelessWidget {
   final bool success;
@@ -46,7 +47,8 @@ class AttendanceStatusScreen extends StatelessWidget {
               Text("Method: $method"),
               const SizedBox(height: 30),
               ElevatedButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => context.go('/teacher/start'),
+                
                 child: const Text("Back"),
               )
             ],

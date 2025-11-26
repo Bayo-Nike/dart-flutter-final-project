@@ -1,7 +1,4 @@
 import 'package:attendance_app/modules/auth/register_screen.dart';
-import 'package:attendance_app/modules/student/attendance_status_screen.dart';
-import 'package:attendance_app/modules/student/qr_scan_screen.dart';
-import 'package:attendance_app/modules/teacher/start_session_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'auth_service.dart';

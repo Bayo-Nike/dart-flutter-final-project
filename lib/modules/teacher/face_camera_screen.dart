@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/loading_indicator.dart';
+import 'package:go_router/go_router.dart';
 
 class FaceCameraScreen extends StatefulWidget {
   const FaceCameraScreen({super.key});
@@ -59,14 +60,14 @@ class _FaceCameraScreenState extends State<FaceCameraScreen> {
 
     if (!mounted) return;
 
-    Navigator.pushReplacementNamed(
-      context,
-      "/attendance/status",
-      arguments: {
+    context.go(
+      '/attendance/status',
+      extra: {
         "success": true,
         "method": "face",
         "message": "Face detected successfully!",
       },
     );
+
   }
 }

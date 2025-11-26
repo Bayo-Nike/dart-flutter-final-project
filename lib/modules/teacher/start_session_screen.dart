@@ -53,7 +53,8 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
               },
               child: const Text("Start Session"),
             ),
-            const SizedBox(height: 10),
+
+            const SizedBox(height: 15),
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -66,7 +67,8 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
               },
               child: const Text("Go to Face Scan"),
             ),
-            const SizedBox(height: 10),
+
+            const SizedBox(height: 15),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueAccent,
@@ -83,7 +85,8 @@ class _StartSessionScreenState extends State<StartSessionScreen> {
               },
               child: const Text("Go to QR Scan"),
             ),
-            const SizedBox(height: 10),
+
+            const SizedBox(height: 15),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueAccent,

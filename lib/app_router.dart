@@ -1,10 +1,7 @@
 import 'package:attendance_app/modules/student/attendance_status_screen.dart';
-import 'package:attendance_app/modules/student/face_checkin_screen.dart';
 import 'package:attendance_app/modules/teacher/face_camera_screen.dart';
 import 'package:attendance_app/modules/teacher/manual_attendance_screen.dart';
 import 'package:attendance_app/modules/teacher/qr_display_screen.dart';
-import 'package:attendance_app/modules/teacher/rfid_screen.dart';
-import 'package:flutter/material.dart';
 import 'modules/auth/login_screen.dart';
 import 'package:attendance_app/modules/student/qr_scan_screen.dart';
 import 'package:attendance_app/modules/teacher/start_session_screen.dart';
@@ -28,6 +25,8 @@ class AppRouter {
         path: '/',
         builder: (context, state) => const LoginScreen(),
       ),
+
+      // Teacher Route
       GoRoute(
         path: '/teacher/start',
         builder: (context, state) => const StartSessionScreen(),
@@ -53,8 +52,22 @@ class AppRouter {
         },
       ),
 
+      GoRoute(
+        path: '/attendance/status',
+        builder: (context, state) {
+          final args = state.extra as Map?;
+
+          return AttendanceStatusScreen(
+            success: args?['success'],
+            method: args?['method'],
+            message: args?['message'],
+          );
+        },
+      ),
 
 
+
+      // Student Route
       GoRoute(
         path: '/student/home',
         builder: (context, state) => const QRScanScreen(),
